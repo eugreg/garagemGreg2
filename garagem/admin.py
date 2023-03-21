@@ -1,7 +1,9 @@
 from django.contrib import admin
 
-from garagem.models import Marca, Categoria
+from garagem.models import Marca, Categoria,Veiculos, Cor
 
 admin.site.register(Categoria)
 admin.site.register(Marca)
+admin.site.register(Veiculos)
+admin.site.register(Cor)
 
