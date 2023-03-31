@@ -4,7 +4,7 @@ from rest_framework.viewsets import ModelViewSet
 
 
 from garagem.models import Marca
-from garagem.serializer import MarcaSerializer
+from garagem.serializers import MarcaSerializer
 
 
 class MarcaViewSet(ModelViewSet):
