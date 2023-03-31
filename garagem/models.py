@@ -17,7 +17,8 @@ class Acessorio(models.Model):
         return self.descircao
     
     class Meta:
-        verbose_name_plural="Acessórios"
+        verbose_name = "acessório"
+        verbose_name_plural = "acessórios"
 
 class Cor(models.Model):
     descricao = models.CharField(max_length=100)
@@ -25,9 +26,9 @@ class Cor(models.Model):
         return self.descricao
     
     class Meta:
-        verbose_name_plural="Cor"
+        verbose_name_plural = "cor"
 
-class Veiculos(models.Model):
+class Veiculo(models.Model):
     modelo = models.CharField(max_length=100)
     marca = models.ForeignKey(Marca,on_delete=models.PROTECT,related_name="veiculos")
     categoria = models.ForeignKey(Categoria, on_delete=models.PROTECT, related_name="veiculos")
@@ -41,5 +42,6 @@ class Veiculos(models.Model):
         return f"{self.marca}-{self.modelo}-{self.ano}-{self.cor}"
     
     class Meta:
-        verbose_name_plural="Veiculos"
+        verbose_name = "veículo"
+        verbose_name_plural = "veículos"
 
