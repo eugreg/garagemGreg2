@@ -15,6 +15,9 @@ class Acessorio(models.Model):
     descircao = models.CharField(max_length=100)
     def __str__(self) :
         return self.descircao
+    
+    class Meta:
+        verbose_name_plural="Acessórios"
 
 class Cor(models.Model):
     descricao = models.CharField(max_length=100)
@@ -28,7 +31,12 @@ class Veiculos(models.Model):
     cor = models.ForeignKey(Cor,on_delete=models.PROTECT, related_name="veiculos")
     ano = models.IntegerField(null=True,default=0) 
     preco = models.DecimalField(max_digits=10, decimal_places=2,null=True, default=0)
+    
+    
 
     def __str__(self):
         return f"{self.marca}-{self.modelo}-{self.ano}-{self.cor}"
+    
+    class Meta:
+        verbose_name_plural="Veiculos"
 
