@@ -26,7 +26,7 @@ class Cor(models.Model):
         return self.descricao
     
     class Meta:
-        verbose_name_plural = "cor"
+        verbose_name_plural = "cores"
 
 class Veiculo(models.Model):
     modelo = models.CharField(max_length=100)
