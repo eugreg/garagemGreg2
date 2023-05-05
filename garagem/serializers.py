@@ -1,7 +1,12 @@
 from rest_framework.serializers import ModelSerializer
 
+from garagem.models import Acessorio, Categoria, Cor, Marca, Veiculo
 
-from garagem.models import Marca, Categoria, Cor, Veiculo, Acessorio
+
+class AcessorioSerializer(ModelSerializer):
+    class Meta:
+        model = Acessorio
+        fields = "__all__"
 
 
 class CategoriaSerializer(ModelSerializer):
@@ -16,6 +21,12 @@ class CorSerializer(ModelSerializer):
         fields = "__all__"
 
 
+class MarcaSerializer(ModelSerializer):
+    class Meta:
+        model = Marca
+        fields = "__all__"
+
+
 class VeiculoSerializer(ModelSerializer):
     class Meta:
         model = Veiculo
@@ -26,22 +37,10 @@ class VeiculoDetailSerializer(ModelSerializer):
     class Meta:
         model = Veiculo
         fields = "__all__"
-        depht = 1
+        depth = 1
 
 
 class VeiculoListSerializer(ModelSerializer):
     class Meta:
         model = Veiculo
         fields = ["modelo", "ano", "preco"]
-
-
-class AcessorioSerializer(ModelSerializer):
-    class Meta:
-        model = Acessorio
-        fields = "__all__"
-
-
-class MarcaSerializer(ModelSerializer):
-    class Meta:
-        model = Marca
-        fields = "__all__"

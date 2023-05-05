@@ -1,18 +1,11 @@
 from django.shortcuts import render
-
 from rest_framework.viewsets import ModelViewSet
 
-
-from garagem.models import Marca, Veiculo, Categoria, Cor, Acessorio
-from garagem.serializers import (
-    MarcaSerializer,
-    CategoriaSerializer,
-    CorSerializer,
-    VeiculoSerializer,
-    AcessorioSerializer,
-    VeiculoDetailSerializer,
-    VeiculoListSerializer,
-)
+from garagem.models import Acessorio, Categoria, Cor, Marca, Veiculo
+from garagem.serializers import (AcessorioSerializer, CategoriaSerializer,
+                                 CorSerializer, MarcaSerializer,
+                                 VeiculoDetailSerializer,
+                                 VeiculoListSerializer, VeiculoSerializer)
 
 
 class CategoriaViewSet(ModelViewSet):

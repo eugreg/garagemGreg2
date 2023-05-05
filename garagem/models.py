@@ -1,21 +1,6 @@
 from django.db import models
 
 
-class Marca(models.Model):
-    nome = models.CharField(max_length=50)
-    nacionalidade = models.CharField(max_length=50, null=True, blank=True)
-
-    def __str__(self):
-        return f"{self.nome.upper()}-{self.nacionalidade.upper()}"
-
-
-class Categoria(models.Model):
-    descricao = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.descricao
-
-
 class Acessorio(models.Model):
     descircao = models.CharField(max_length=100)
 
@@ -27,6 +12,13 @@ class Acessorio(models.Model):
         verbose_name_plural = "acessórios"
 
 
+class Categoria(models.Model):
+    descricao = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.descricao
+
+
 class Cor(models.Model):
     descricao = models.CharField(max_length=100)
 
@@ -35,6 +27,14 @@ class Cor(models.Model):
 
     class Meta:
         verbose_name_plural = "cores"
+
+
+class Marca(models.Model):
+    nome = models.CharField(max_length=50)
+    nacionalidade = models.CharField(max_length=50, null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.nome.upper()}-{self.nacionalidade.upper()}"
 
 
 class Veiculo(models.Model):
