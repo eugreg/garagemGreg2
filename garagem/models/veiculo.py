@@ -1,5 +1,5 @@
 from django.db import models
-from garagem.models import Categoria, Marca, Cor, Acessorio, Modelo
+from garagem.models import Cor, Acessorio, Modelo
 from uploader.models import Image
 
 class Veiculo(models.Model):
@@ -18,7 +18,7 @@ class Veiculo(models.Model):
     acessorio = models.ManyToManyField(Acessorio, related_name="Veiculo")
 
     def __str__(self):
-        return f"{self.marca}-{self.modelo}-{self.ano}-{self.cor}"
+        return f"{self.modelo}-{self.ano}-{self.cor}"
 
     class Meta:
         verbose_name = "veículo"
