@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "usuario",
     "rest_framework",
     "uploader",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
