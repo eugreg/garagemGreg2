@@ -1,5 +1,5 @@
 from django.db import models
-from garagem.models import Categoria, Marca, Cor, Acessorio
+from garagem.models import Cor, Acessorio, Modelo
 from uploader.models import Image
 
 
@@ -8,18 +8,14 @@ class Veiculo(models.Model):
         Image,
         related_name="+",
     )
-    modelo = models.CharField(max_length=100)
-    marca = models.ForeignKey(Marca, on_delete=models.PROTECT, related_name="veiculos")
-    categoria = models.ForeignKey(
-        Categoria, on_delete=models.PROTECT, related_name="veiculos"
-    )
+    modelo = models.ForeignKey(Modelo, on_delete=models.PROTECT, related_name="veiculos")
     cor = models.ForeignKey(Cor, on_delete=models.PROTECT, related_name="veiculos")
     ano = models.IntegerField(null=True, default=0)
     preco = models.DecimalField(max_digits=10, decimal_places=2, null=True, default=0)
     acessorio = models.ManyToManyField(Acessorio, related_name="Veiculo")
 
     def __str__(self):
-        return f"{self.marca}-{self.modelo}-{self.ano}-{self.cor}"
+        return f"{self.modelo}-{self.ano}-{self.cor}"
 
     class Meta:
         verbose_name = "veículo"
