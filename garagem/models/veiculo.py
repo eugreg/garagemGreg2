@@ -2,14 +2,11 @@ from django.db import models
 from garagem.models import Categoria, Marca, Cor, Acessorio
 from uploader.models import Image
 
+
 class Veiculo(models.Model):
-    capa = models.ForeignKey(
+    capa = models.ManyToManyField(
         Image,
         related_name="+",
-        on_delete=models.CASCADE,
-        null=True,
-        blank=True,
-        default=None,
     )
     modelo = models.CharField(max_length=100)
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT, related_name="veiculos")
